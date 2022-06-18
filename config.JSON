@@ -5,17 +5,14 @@
         "password": "",
         "database": "easypay"
     },
-    "app_secret": "@!Another",
+    "app_secret": "testtest",
     "hashing": {
         "key" : "somethinghere",
         "auth_size": 16,
         "salt": "this_is_the_salt"
     },
     "flutterwave": {
-        "pub_key": "FLWPUBK-273de182a38869879efbdac027f875d9-X",
-        "sec_key": "FLWSECK-1c1195d12857a7789e57e300176f2f70-X"
-    },
-    "beyonic": {
-        "api_key": "9df2c56dce4c3e601df050951995708d655db541"
+        "pub_key": "",
+        "sec_key": ""
     }
 }

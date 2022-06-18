@@ -31,12 +31,6 @@ salt = config['hashing']['salt']
 fw_pub = config['flutterwave']['pub_key']
 fw_sec = config['flutterwave']['sec_key']
 
-beyonic_api = config['beyonic']['api_key']
-
-# mailhost = config['mail']['host']
-# mailuser = config['mail']['sender']
-# mailpass = config['mail']['password']
-
 # flutter_pub = config['flutterwave']['pub']
 # flutter_sec = config['flutterwave']['sec']
 
@@ -57,18 +51,6 @@ def send_mail(destination, subject, body):
     except Exception as e:
         print(e.message)
         return False
-    # port = 465
-    # context = ssl.create_default_context()
-    # message = """\
-    #     Subject: """+subject+"""
-        
-    #     """+body+""" """
-    # try:
-    #     with smtplib.SMTP_SSL(mailhost, port, context=context) as server:
-    #         server.login(mailuser, mailpass)
-    #         server.sendmail(mailuser, destination, message)
-    # except:
-    #     return False
 
 def encode_auth_token(user_id):
     try:
@@ -195,31 +177,6 @@ def get_user():
         return jsonify({'status':'error', 'message': 'invalid token used'})
     else:
         return current_user    
-
-# def login_required(f):
-#     @wraps(f)
-#     def decorator(*args, **kwargs):
-#         try:
-#             token = session['token']
-#         except KeyError:
-#             token = None
-#         if token is not None:
-#             _id = token
-#             check = db("SELECT * FROM "+dbname+".users WHERE users.id = "+str(_id))
-#             if not check:
-#                 return redirect('/auth/login')
-#             else:
-#                 # Check if merchant available
-#                 print(request.base_url)
-#                 check2 = db("SELECT * FROM `merchant` WHERE `user_id` = "+str(_id))
-#                 if not check2:
-#                     print(request.base_url)
-#                     if 'merchant/add' not in request.base_url:
-#                         return redirect('/merchant/add')
-#             return f(*args, **kwargs)
-#         else:
-#             return redirect('/auth/login')
-#     return decorator
 
 def login_required(f):
     @wraps(f)
